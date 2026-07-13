@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+    <div class="logo">
+        🎬 Movie Recommendation
+    </div>
+
+    <div class="nav-right">
+
+        <span>Welcome, {{ username }} 👋</span>
+
+        <a href="{{ url_for('logout') }}" class="logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <h1>Discover Your Next Favorite Movie</h1>
+
+    <p>
+        AI Powered Movie Recommendation System
+    </p>
+
+</section>
+
+
+<!-- Search -->
+
+<section class="search">
+
+    <form action="/recommend" method="POST">
+
+        <input
+            type="text"
+            name="movie"
+            placeholder="Search any movie..."
+            required>
+
+        <button>
+            Recommend
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- Recommendations -->
+
+{% if recommendations %}
+
+<h2 class="heading">
+    Recommended Movies
+</h2>
+
+<div class="movies">
+
+{% for m in recommendations %}
+
+<div class="card">
+
+<img src="{{m.poster}}" class="poster">
+
+<h3>{{m.title}}</h3>
+
+<p>⭐ {{m.rating}}</p>
+
+<p>📅 {{m.year}}</p>
+
+<p>{{m.genre}}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+
+<footer>
+
+Made with ❤️ using Flask + Machine Learning
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>{{ movie.Title }}</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🎬 Movie Recommendation
+</div>
+
+<div class="nav-right">
+
+<span>Welcome {{ username }}</span>
+
+<a href="/" class="logout">
+Home
+</a>
+
+</div>
+
+</nav>
+
+<div class="movie-page">
+
+<img src="{{ movie.Poster }}" class="movie-poster">
+
+<div class="movie-info">
+
+<h1>{{ movie.Title }}</h1>
+
+<h3>⭐ IMDb {{ movie.imdbRating }}</h3>
+
+<h3>📅 {{ movie.Year }}</h3>
+
+<h3>🎭 {{ movie.Genre }}</h3>
+
+<h3>🎬 Director</h3>
+
+<p>{{ movie.Director }}</p>
+
+<h3>👥 Cast</h3>
+
+<p>{{ movie.Actors }}</p>
+
+<h3>📝 Story</h3>
+
+<p>{{ movie.Plot }}</p>
+
+<h3>⏱ Runtime</h3>
+
+<p>{{ movie.Runtime }}</p>
+
+<h3>🌎 Language</h3>
+
+<p>{{ movie.Language }}</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
